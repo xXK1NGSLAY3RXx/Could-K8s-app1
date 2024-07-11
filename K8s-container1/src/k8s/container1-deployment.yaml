@@ -1,0 +1,40 @@
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: container1
+  template:
+    metadata:
+      labels:
+        app: container1
+    spec:
+      containers:
+        - name: container1
+          image: gcr.io/cloud-k8s-429121/container1
+          ports:
+            - containerPort: 6000
+          volumeMounts:
+            - mountPath: /mnt/data/Arta_PV_dir
+              name: storage
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: Arta-pvc
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: container1-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 6000
+  selector:
+    app: container1
