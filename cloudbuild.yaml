@@ -10,3 +10,6 @@
         - 'CLOUDSDK_CONTAINER_CLUSTER=primary'
   images:
     - 'gcr.io/cloud-k8s-429121/container1'
+  options:
+    logging: CLOUD_LOGGING_ONLY
+
