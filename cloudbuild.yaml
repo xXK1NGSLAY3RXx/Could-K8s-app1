@@ -16,10 +16,10 @@ steps:
 
   # Step to apply PV and PVC manifest
   - name: 'gcr.io/cloud-builders/kubectl'
-        args: [ 'apply', '-f', 'k8s/pv-pvc.yaml' ]
-        env:
-          - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-          - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
+    args: ['apply', '-f', 'k8s/pv-pvc.yaml']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
 
   # Step to apply Kubernetes manifests
   - name: 'gcr.io/cloud-builders/kubectl'
