@@ -17,6 +17,7 @@ if (!fs.existsSync(FILE_DIR)) {
     console.log('Files directory already exists');
 }
 
+
 // POST API to store a file
 app.post('/store-file', (req, res) => {
     const { file, data } = req.body;
