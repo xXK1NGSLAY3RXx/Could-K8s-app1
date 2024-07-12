@@ -21,7 +21,7 @@ steps:
 
   # Step to apply Kubernetes deployment and service manifests
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['apply', '-f', 'k8s/deployment-service.yaml']
+    args: ['apply', '-f', 'k8s/container1-deployment.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
       - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
