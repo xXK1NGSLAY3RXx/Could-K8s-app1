@@ -8,6 +8,7 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
   gcePersistentDisk:
     pdName: assignment-pd
     fsType: ext4
