@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: container1
-          image: gcr.io/cloud-k8s-429121/container1
+          image: gcr.io/cloud-k8s-429121/container1:1.0.0
           ports:
             - containerPort: 6000
           volumeMounts:
