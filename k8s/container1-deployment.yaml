@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
         - name: container1
-          image: gcr.io/cloud-k8s-429121/container1:1.0.0
+          image: gcr.io/cloud-k8s-429121/container1
           ports:
             - containerPort: 6000
           volumeMounts:
-            - mountPath: /mnt/data/arta_PV_dir
+            - mountPath: /arta_PV_dir
               name: storage
       volumes:
         - name: storage

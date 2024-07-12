@@ -7,7 +7,7 @@ app.use(express.json());
 
 const PORT = 6000;
 const CONTAINER_2_URL = 'http://container2:7000/calculate'; // URL for container 2 in Kubernetes
-const FILE_DIR = '/mnt/data/arta_PV_dir'; // Directory for file storage
+const FILE_DIR = '/arta_PV_dir'; // Directory for file storage
 
 // Ensure the files directory exists
 if (!fs.existsSync(FILE_DIR)) {
