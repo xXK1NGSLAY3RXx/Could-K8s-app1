@@ -17,7 +17,6 @@ steps:
     args: ['apply', '-f', 'k8s/pv-pvc.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
 
   # Step to apply Kubernetes deployment and service manifests
@@ -25,7 +24,6 @@ steps:
     args: ['apply', '-f', 'k8s/deployment-service.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
 
 images:
