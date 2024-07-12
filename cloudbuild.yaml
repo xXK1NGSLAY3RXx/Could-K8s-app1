@@ -12,24 +12,21 @@ steps:
     entrypoint: 'gcloud'
     args: ['container', 'clusters', 'get-credentials', 'assignment-cluster', '--zone', 'us-central1-a', '--project', 'cloud-k8s-429121']
 
-  # Step to set environment variables
-  - name: 'gcr.io/cloud-builders/kubectl'
-    entrypoint: 'sh'
-    args:
-      - '-c'
-      - |
-        echo "export CLOUDSDK_COMPUTE_ZONE=us-central1-a" >> $BASH_ENV
-        echo "export CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster" >> $BASH_ENV
-        echo "export PROJECT_ID=cloud-k8s-429121" >> $BASH_ENV
-        source $BASH_ENV
-
   # Step to apply PV and PVC manifest
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'k8s/pv-pvc.yaml']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
 
   # Step to apply Kubernetes deployment and service manifests
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'k8s/deployment-service.yaml']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=assignment-cluster'
 
 images:
   - 'gcr.io/cloud-k8s-429121/container1'
